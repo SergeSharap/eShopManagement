@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  orders-service:
+    build: ./OrdersService
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  users-service:
+    build: ./UsersService
+    ports:
+      - "5002:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  auth-service:
+    build: ./AuthService
+    ports:
+      - "5003:80"
+
+  gateway-service:
+    build: ./GatewayService
+    ports:
+      - "5000:80"
